@@ -68,7 +68,7 @@ function mosaic_for_woocommerce_blocks_product_buy_area_block_init() {
 	wp_register_style(
 		'mosaic-for-woocommerce-blocks-product-buy-area',
 		plugins_url( $style_css, __FILE__ ),
-		array( 'mosaic-for-woocommerce-blocks-event-product-indicators', ),
+		array(),
 		filemtime( "$dir/$style_css" )
 	);
 
