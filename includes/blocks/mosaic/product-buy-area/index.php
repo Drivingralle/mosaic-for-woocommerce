@@ -10,7 +10,7 @@
  * Registers all block assets so that they can be enqueued through Gutenberg in
  * the corresponding context.
  */
-function mosaic_for_woocommerce_blocks_products_buy_area_block_init() {
+function mosaic_for_woocommerce_blocks_product_buy_area_block_init() {
 
 	// Skip block registration if Gutenberg is not enabled/merged.
 	if ( ! function_exists( 'register_block_type' ) ) {
@@ -28,7 +28,7 @@ function mosaic_for_woocommerce_blocks_products_buy_area_block_init() {
 
 	// Register main js file
 	wp_register_script(
-		'mosaic-for-woocommerce-blocks-products-buy-area-block-editor',
+		'mosaic-for-woocommerce-blocks-product-buy-area-editor',
 		plugins_url( $index_js, __FILE__ ),
 		array(
 			'wp-blocks',
@@ -52,7 +52,7 @@ function mosaic_for_woocommerce_blocks_products_buy_area_block_init() {
 
 	// Add editor styles
 	wp_register_style(
-		'mosaic-for-woocommerce-blocks-products-buy-area-block-editor',
+		'mosaic-for-woocommerce-blocks-product-buy-area-editor',
 		plugins_url( $editor_css, __FILE__ ),
 		array(),
 		filemtime( "$dir/$editor_css" )
@@ -66,7 +66,7 @@ function mosaic_for_woocommerce_blocks_products_buy_area_block_init() {
 
 	// Load frontend styles
 	wp_register_style(
-		'mosaic-for-woocommerce-blocks-products-buy-area-block',
+		'mosaic-for-woocommerce-blocks-product-buy-area',
 		plugins_url( $style_css, __FILE__ ),
 		array( 'mosaic-for-woocommerce-blocks-event-product-indicators', ),
 		filemtime( "$dir/$style_css" )
@@ -75,15 +75,15 @@ function mosaic_for_woocommerce_blocks_products_buy_area_block_init() {
 	/*
 	 * Add the block type
 	 */
-	register_block_type( 'mosaic-for-woocommerce/products-buy-area', array(
-		'editor_script'   => 'mosaic-for-woocommerce-blocks-products-buy-area-block-editor',
-		'editor_style'    => 'mosaic-for-woocommerce-blocks-products-buy-area-block-editor',
-		'style'           => 'mosaic-for-woocommerce-blocks-products-buy-area-block',
-		'render_callback' => 'mosaic_for_woocommerce_blocks_products_buy_area_block_render_callback',
+	register_block_type( 'mosaic-for-woocommerce/product-buy-area', array(
+		'editor_script'   => 'mosaic-for-woocommerce-blocks-product-buy-area-editor',
+		'editor_style'    => 'mosaic-for-woocommerce-blocks-product-buy-area-editor',
+		'style'           => 'mosaic-for-woocommerce-blocks-product-buy-area',
+		'render_callback' => 'mosaic_for_woocommerce_blocks_product_buy_area_render_callback',
 		'attributes'      => array(),
 	) );
 }
-add_action( 'init', 'mosaic_for_woocommerce_blocks_products_buy_area_block_init', 100 );
+add_action( 'init', 'mosaic_for_woocommerce_blocks_product_buy_area_block_init', 100 );
 
 /**
  * Render callback for block.
@@ -93,7 +93,7 @@ add_action( 'init', 'mosaic_for_woocommerce_blocks_products_buy_area_block_init'
  *
  * @return string
  */
-function mosaic_for_woocommerce_blocks_products_buy_area_block_render_callback( array $attributes, $content ) {
+function mosaic_for_woocommerce_blocks_product_buy_area_render_callback( array $attributes, string $content ): string {
 
 	ob_start();
 	?>
