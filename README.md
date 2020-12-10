@@ -1,2 +1,2 @@
-# mosaic-for-woocommerce
+# Mosaic for WooCommerce
 serverside driven blocks for WooCommerce
