@@ -54,4 +54,5 @@ register_deactivation_hook( __FILE__, 'mosaic_for_woocommerce_deactivate' );
 /*
  * Load features
  */
+require_once 'includes/woocommerce-mods.php';
 require_once 'includes/blocks/blocks.php';

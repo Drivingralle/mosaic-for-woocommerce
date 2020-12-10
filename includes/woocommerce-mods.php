@@ -7,10 +7,12 @@ class Mosaic_for_WooCommerce_Mods {
 
 	public function __construct() {
 
-		add_filter( 'use_block_editor_for_post_type', 'activate_block_editor_for_products', 10, 2 );
+		add_filter( 'use_block_editor_for_post_type', array( $this, 'activate_block_editor_for_products' ), 100, 2 );
 
-		add_filter( 'woocommerce_taxonomy_args_product_cat', 'maybe_show_taxonomies_in_rest_api', 10, 1 );
-		add_filter( 'woocommerce_taxonomy_args_product_tag', 'maybe_show_taxonomies_in_rest_api', 10, 1 );
+		add_filter( 'woocommerce_taxonomy_args_product_cat', array( $this, 'maybe_show_taxonomies_in_rest_api' ), 10, 1 );
+		add_filter( 'woocommerce_taxonomy_args_product_tag', array( $this, 'maybe_show_taxonomies_in_rest_api' ), 10, 1 );
+
+		add_action( 'add_meta_boxes', array( $this, 'remove_short_description' ), 999 );
 
 	}
 
@@ -47,6 +49,13 @@ class Mosaic_for_WooCommerce_Mods {
 		}
 
 		return $args;
+	}
+
+	/**
+	 * Remove short description meta box.
+	 */
+	public function remove_short_description() {
+		remove_meta_box('postexcerpt', 'product', 'normal');
 	}
 
 }
