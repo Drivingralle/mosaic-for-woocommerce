@@ -8,6 +8,10 @@
 }
 
 .mosaic-for-woocommerce-blocks-add-to-cart-block:before {
-	content: 'Add to cart block';
-	display: block;
+	content:          'Add to cart block';
+	display:          block;
+	background-color: rgba(200, 200, 200, .8);
+	text-align:       center;
+	font-style:       italic;
+	padding:          15px;
 }

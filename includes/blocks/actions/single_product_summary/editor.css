@@ -8,6 +8,10 @@
 }
 
 .mosaic-for-woocommerce-blocks-single-product-summary:before {
-	content: 'WooCommerce Action: Single Product Summary';
-	display: block;
+	content:          'WooCommerce Action: Single Product Summary';
+	display:          block;
+	background-color: rgba(200, 200, 200, .8);
+	text-align:       center;
+	font-style:       italic;
+	padding:          15px;
 }
