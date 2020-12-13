@@ -96,15 +96,25 @@ add_action( 'init', 'mosaic_for_woocommerce_blocks_single_product_summary_block_
  */
 function mosaic_for_woocommerce_blocks_single_product_summary_render_callback( array $attributes, string $content ): string {
 
+	// Collect classes
+	$classes = array(
+		'mosaic-for-woocommerce-blocks-single-product-summary',
+	);
+	if ( 'full' === $attributes['align'] ) {
+		$classes[] = 'alignfull';
+	}
+
 	ob_start();
 	?>
 
-	<span id="single-product-summary"></span>
+	<div id="single-product-summary" class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>">
+		<?php
+		// Do the add to cart stuff
+		do_action( 'woocommerce_single_product_summary' );
+		?>
+	</div>
 
 	<?php
-	// Do the add to cart stuff
-	do_action( 'woocommerce_single_product_summary' );
-
 	// Return the markup
 	return ob_get_clean();
 }
