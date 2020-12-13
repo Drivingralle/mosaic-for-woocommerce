@@ -3,5 +3,11 @@
  */
 
 .mosaic-for-woocommerce-blocks-single-product-summary {
-	pointer-events: none;
+	pointer-events:   none;
+	background-color: #ddd;
+}
+
+.mosaic-for-woocommerce-blocks-single-product-summary:before {
+	content: 'WooCommerce Action: Single Product Summary';
+	display: block;
 }

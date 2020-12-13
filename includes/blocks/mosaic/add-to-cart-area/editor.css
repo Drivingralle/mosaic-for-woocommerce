@@ -3,7 +3,8 @@
  */
 
 .mosaic-for-woocommerce-blocks-add-to-cart-block {
-	pointer-events: none;
+	pointer-events:   none;
+	background-color: #ddd;
 }
 
 .mosaic-for-woocommerce-blocks-add-to-cart-block:before {
