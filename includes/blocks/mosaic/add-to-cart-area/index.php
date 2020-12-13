@@ -10,7 +10,7 @@
  * Registers all block assets so that they can be enqueued through Gutenberg in
  * the corresponding context.
  */
-function mosaic_for_woocommerce_blocks_product_buy_area_block_init() {
+function mosaic_for_woocommerce_blocks_product_add_to_cart_area_block_init() {
 
 	// Skip block registration if Gutenberg is not enabled/merged.
 	if ( ! function_exists( 'register_block_type' ) ) {
@@ -28,7 +28,7 @@ function mosaic_for_woocommerce_blocks_product_buy_area_block_init() {
 
 	// Register main js file
 	wp_register_script(
-		'mosaic-for-woocommerce-blocks-product-buy-area-editor',
+		'mosaic-for-woocommerce-blocks-product-add-to-cart-area-editor',
 		plugins_url( $index_js, __FILE__ ),
 		array(
 			'wp-blocks',
@@ -52,7 +52,7 @@ function mosaic_for_woocommerce_blocks_product_buy_area_block_init() {
 
 	// Add editor styles
 	wp_register_style(
-		'mosaic-for-woocommerce-blocks-product-buy-area-editor',
+		'mosaic-for-woocommerce-blocks-product-add-to-cart-area-editor',
 		plugins_url( $editor_css, __FILE__ ),
 		array(),
 		filemtime( "$dir/$editor_css" )
@@ -66,7 +66,7 @@ function mosaic_for_woocommerce_blocks_product_buy_area_block_init() {
 
 	// Load frontend styles
 	wp_register_style(
-		'mosaic-for-woocommerce-blocks-product-buy-area',
+		'mosaic-for-woocommerce-blocks-product-add-to-cart-area',
 		plugins_url( $style_css, __FILE__ ),
 		array(),
 		filemtime( "$dir/$style_css" )
@@ -75,15 +75,15 @@ function mosaic_for_woocommerce_blocks_product_buy_area_block_init() {
 	/*
 	 * Add the block type
 	 */
-	register_block_type( 'mosaic-for-woocommerce/product-buy-area', array(
-		'editor_script'   => 'mosaic-for-woocommerce-blocks-product-buy-area-editor',
-		'editor_style'    => 'mosaic-for-woocommerce-blocks-product-buy-area-editor',
-		'style'           => 'mosaic-for-woocommerce-blocks-product-buy-area',
-		'render_callback' => 'mosaic_for_woocommerce_blocks_product_buy_area_render_callback',
+	register_block_type( 'mosaic-for-woocommerce/product-add-to-cart-area', array(
+		'editor_script'   => 'mosaic-for-woocommerce-blocks-product-add-to-cart-area-editor',
+		'editor_style'    => 'mosaic-for-woocommerce-blocks-product-add-to-cart-area-editor',
+		'style'           => 'mosaic-for-woocommerce-blocks-product-add-to-cart-area',
+		'render_callback' => 'mosaic_for_woocommerce_blocks_product_add_to_cart_area_render_callback',
 		'attributes'      => array(),
 	) );
 }
-add_action( 'init', 'mosaic_for_woocommerce_blocks_product_buy_area_block_init', 100 );
+add_action( 'init', 'mosaic_for_woocommerce_blocks_product_add_to_cart_area_block_init', 100 );
 
 /**
  * Render callback for block.
@@ -93,12 +93,12 @@ add_action( 'init', 'mosaic_for_woocommerce_blocks_product_buy_area_block_init',
  *
  * @return string
  */
-function mosaic_for_woocommerce_blocks_product_buy_area_render_callback( array $attributes, string $content ): string {
+function mosaic_for_woocommerce_blocks_product_add_to_cart_area_render_callback( array $attributes, string $content ): string {
 
 	ob_start();
 	?>
 
-	<span id="buy-now"></span>
+	<span id="add-to-cart"></span>
 
 	<?php
 	// Do the add to cart stuff

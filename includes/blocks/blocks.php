@@ -10,4 +10,4 @@ require_once 'block-categories/block-categories.php';
 require_once 'actions/single_product_summary/index.php';
 
 // Custom blocks
-require_once 'mosaic/product-buy-area/index.php';
+require_once 'mosaic/add-to-cart-area/index.php';

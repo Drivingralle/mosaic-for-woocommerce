@@ -1,7 +1,5 @@
 /**
- * Block Styles Example
- *
- * https://github.com/modularwp/gutenberg-block-styles-example
+ * Register Block
  */
 ( function () {
 	let __ = wp.i18n.__; // The __() function for internationalization.
@@ -18,12 +16,12 @@
 	 *                             otherwise "undefined".
 	 */
 	registerBlockType(
-		'mosaic-for-woocommerce/product-buy-area', // Block name. Must be string that contains a namespace prefix. Example: my-plugin/my-custom-block.
+		'mosaic-for-woocommerce/product-add-to-cart-area', // Block name. Must be string that contains a namespace prefix. Example: my-plugin/my-custom-block.
 		{
-			title: __( 'Buy area' ), // Block title. __() function allows for internationalization.
+			title: __( 'Add to cart area' ), // Block title. __() function allows for internationalization.
 			icon: 'cart', // Block icon from Dashicons. https://developer.wordpress.org/resource/dashicons/.
 			category: 'mosaic-for-woocommerce-custom', // Block category.
-			keywords: [ __( 'add to cart' ), __( 'buy' ), __( 'price' ) ],
+			keywords: [ __( 'button' ), __( 'buy' ), __( 'price' ) ],
 
 			supports: {
 				html: true,
@@ -37,7 +35,7 @@
 					createElement(
 						ServerSideRender,
 						{
-							block: 'mosaic-for-woocommerce/product-buy-area',
+							block: 'mosaic-for-woocommerce/product-add-to-cart-area',
 							attributes: attributes,
 						}
 					),
