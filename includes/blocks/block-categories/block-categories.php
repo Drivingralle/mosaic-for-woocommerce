@@ -9,7 +9,7 @@ class Mosaic_for_WooCommerce_Blocks_Categories {
 	 * Mosaic_for_WooCommerce_Blocks_Categories constructor.
 	 */
 	public function __construct() {
-		add_filter( 'block_categories', array( 'Mosaic_for_WooCommerce_Blocks_Categories', 'block_categories' ), 50, 2 );
+		add_filter( 'block_categories', array( $this, 'block_categories' ), 50, 2 );
 	}
 
 	/**

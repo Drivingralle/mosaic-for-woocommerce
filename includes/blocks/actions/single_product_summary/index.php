@@ -100,7 +100,7 @@ function mosaic_for_woocommerce_blocks_single_product_summary_render_callback( a
 	$classes = array(
 		'mosaic-for-woocommerce-blocks-single-product-summary',
 	);
-	if ( 'full' === $attributes['align'] ) {
+	if ( isset( $attributes['align'] ) && 'full' === $attributes['align'] ) {
 		$classes[] = 'alignfull';
 	}
 

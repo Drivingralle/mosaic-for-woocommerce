@@ -99,7 +99,7 @@ function mosaic_for_woocommerce_blocks_product_add_to_cart_area_render_callback(
 	$classes = array(
 		'mosaic-for-woocommerce-blocks-add-to-cart-block',
 	);
-	if ( 'full' === $attributes['align'] ) {
+	if ( isset( $attributes['align'] ) && 'full' === $attributes['align'] ) {
 		$classes[] = 'alignfull';
 	}
 
