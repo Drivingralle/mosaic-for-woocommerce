@@ -16,7 +16,7 @@ class Mosaic_for_WooCommerce_Mods {
 
 		add_action( 'plugins_loaded', array( $this, 'remove_woocommerce_actions' ), 998 );
 
-		add_filter( 'template_include', array( $this, 'portfolio_page_template' ), 99 );
+//		add_filter( 'template_include', array( $this, 'portfolio_page_template' ), 99 );
 
 	}
 
