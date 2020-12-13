@@ -22,8 +22,8 @@
 		{
 			title: __( 'Buy area' ), // Block title. __() function allows for internationalization.
 			icon: 'cart', // Block icon from Dashicons. https://developer.wordpress.org/resource/dashicons/.
-			category: 'woocommerce', // Block category. Group blocks together based on common traits E.g. common, formatting, layout widgets, embed.
-			keywords: [ __( 'add to cart' ), __( 'buy' ), __( 'booking' ) ],
+			category: 'mosaic-for-woocommerce-custom', // Block category.
+			keywords: [ __( 'add to cart' ), __( 'buy' ), __( 'price' ) ],
 
 			supports: {
 				html: true,
