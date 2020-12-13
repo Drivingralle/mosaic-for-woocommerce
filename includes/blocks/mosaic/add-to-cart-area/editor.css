@@ -2,6 +2,11 @@
  * Editor styles
  */
 
-.mosaic-for-woocommerce-blocks-product-add-to-cart-block {
+.mosaic-for-woocommerce-blocks-add-to-cart-block {
 	pointer-events: none;
+}
+
+.mosaic-for-woocommerce-blocks-add-to-cart-block:before {
+	content: 'Add to cart block';
+	display: block;
 }

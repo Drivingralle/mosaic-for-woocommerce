@@ -95,15 +95,35 @@ add_action( 'init', 'mosaic_for_woocommerce_blocks_product_add_to_cart_area_bloc
  */
 function mosaic_for_woocommerce_blocks_product_add_to_cart_area_render_callback( array $attributes, string $content ): string {
 
+	// Collect classes
+	$classes = array(
+		'mosaic-for-woocommerce-blocks-add-to-cart-block',
+	);
+	if ( 'full' === $attributes['align'] ) {
+		$classes[] = 'alignfull';
+	}
+
+	// Clear product details
+	remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_title', 5 );
+	remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_rating', 10 );
+	remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 10 );
+	remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20 );
+	remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
+	remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_sharing', 50 );
+
 	ob_start();
 	?>
 
-	<span id="add-to-cart"></span>
+	<div id="add-to-cart" class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>">
+
+		<?php
+		// Do the add to cart stuff
+		do_action( 'woocommerce_single_product_summary' );
+		?>
+
+	</div>
 
 	<?php
-	// Do the add to cart stuff
-	do_action( 'woocommerce_single_product_summary' );
-
 	// Return the markup
 	return ob_get_clean();
 }
