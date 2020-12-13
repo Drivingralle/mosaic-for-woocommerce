@@ -14,6 +14,10 @@ class Mosaic_for_WooCommerce_Mods {
 
 		add_action( 'add_meta_boxes', array( $this, 'remove_short_description' ), 999 );
 
+		add_action( 'plugins_loaded', array( $this, 'remove_woocommerce_actions' ), 998 );
+
+		add_filter( 'template_include', array( $this, 'portfolio_page_template' ), 99 );
+
 	}
 
 	/**
@@ -56,6 +60,54 @@ class Mosaic_for_WooCommerce_Mods {
 	 */
 	public function remove_short_description() {
 		remove_meta_box('postexcerpt', 'product', 'normal');
+	}
+
+	/**
+	 * Remove default actions by WooCommerce Core.
+	 */
+	public function remove_woocommerce_actions() {
+
+		// Clear product image hook
+//		remove_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_images', 20 );
+//		remove_action( 'woocommerce_product_thumbnails', 'woocommerce_show_product_thumbnails', 20 );
+
+		// Clear product details
+//		remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_title', 5 );
+//		remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_rating', 10 );
+//		remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 10 );
+//		remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20 );
+//		remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
+//		remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_sharing', 50 );
+
+		// Remove tabs from product page
+//		remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10 );
+//		remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_upsell_display', 15 );
+//		remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
+
+	}
+
+	/**
+	 * Use page template over WooCommerce plugin template.
+	 *
+	 * @param string $template
+	 *
+	 * @return string
+	 */
+	function portfolio_page_template( $template ) : string {
+
+		// Check if view is a product
+		if ( is_product()  ) {
+			// Try to get new template
+			$new_template = locate_template( array( 'page.php' ) );
+
+			// Check if new template was found
+			if ( '' != $new_template ) {
+				// return new template path to be loaded
+				return $new_template ;
+			}
+		}
+
+		return $template;
 	}
 
 }
