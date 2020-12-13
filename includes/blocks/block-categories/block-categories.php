@@ -24,8 +24,8 @@ function mosaic_for_woocommerce_blocks_actions_category( array $categories, WP_P
 			'slug'  => 'mosaic-for-woocommerce-templates',
 			'icon'  => 'welcome-widgets-menus',
 		),
-		'customs_category' => array(
-			'title' => esc_html( sprintf( __( '%s: %s', 'mosaic-for-woocommerce' ), __( 'Mosaic', 'mosaic-for-woocommerce' ), __( 'WooCommerce Templates', 'mosaic-for-woocommerce' ) ) ),
+		'customs_category'   => array(
+			'title' => esc_html( sprintf( __( '%s: %s', 'mosaic-for-woocommerce' ), __( 'Mosaic', 'mosaic-for-woocommerce' ), __( 'Custom Blocks', 'mosaic-for-woocommerce' ) ) ),
 			'slug'  => 'mosaic-for-woocommerce-custom',
 			'icon'  => 'admin-tools',
 		),
