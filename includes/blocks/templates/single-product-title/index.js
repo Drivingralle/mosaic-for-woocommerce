@@ -18,7 +18,7 @@
 	registerBlockType(
 		'mosaic-for-woocommerce/single-product-title', // Block name. Must be string that contains a namespace prefix. Example: my-plugin/my-custom-block.
 		{
-			title: __('Mosaic') + ': ' + __( 'Tempalte' ) + ': ' + __( 'Single Product Title' ), // Block title.
+			title: __('Mosaic') + ': ' + __( 'Template' ) + ': ' + __( 'Single Product Title' ), // Block title.
 			icon: 'tag', // Block icon from Dashicons. https://developer.wordpress.org/resource/dashicons/.
 			category: 'mosaic-for-woocommerce-templates', // Block category. Group blocks together based on common traits E.g. common, formatting, layout widgets, embed.
 			keywords: [ __( 'title' ), __( 'headline' ), __( 'name' ) ],
