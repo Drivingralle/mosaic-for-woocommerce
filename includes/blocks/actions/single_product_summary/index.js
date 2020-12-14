@@ -25,12 +25,22 @@
 
 			supports: {
 				html: true,
+				align: true,
 			},
 
-			attributes: {},
+			attributes: {
+				align: {
+					type: 'string',
+				},
+			},
 
 			// Defines the block within the editor.
 			edit: function ( {attributes, setAttributes} ) {
+
+				const {
+					align,
+				} = attributes;
+
 				return [
 					createElement(
 						ServerSideRender,

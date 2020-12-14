@@ -80,7 +80,11 @@ function mosaic_for_woocommerce_blocks_single_product_summary_block_init() {
 		'editor_style'    => 'mosaic-for-woocommerce-blocks-single-product-summary-editor',
 		'style'           => 'mosaic-for-woocommerce-blocks-single-product-summary',
 		'render_callback' => 'mosaic_for_woocommerce_blocks_single_product_summary_render_callback',
-		'attributes'      => array(),
+		'attributes'      => array(
+			'align'           => array(
+				'type' => 'string',
+			),
+		),
 	) );
 
 }
