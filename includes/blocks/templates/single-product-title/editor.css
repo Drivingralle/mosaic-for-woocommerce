@@ -1,0 +1,17 @@
+/**
+ * Editor styles
+ */
+
+.mosaic-for-woocommerce-blocks-single-product-title {
+	pointer-events:   none;
+	background-color: #ddd;
+}
+
+.mosaic-for-woocommerce-blocks-single-product-title:before {
+	content:          'WooCommerce Template: Single Product Title';
+	display:          block;
+	background-color: rgba(200, 200, 200, .8);
+	text-align:       center;
+	font-style:       italic;
+	padding:          15px;
+}
