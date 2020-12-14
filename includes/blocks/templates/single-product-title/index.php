@@ -80,7 +80,17 @@ function mosaic_for_woocommerce_blocks_single_product_title_block_init() {
 		'editor_style'    => 'mosaic-for-woocommerce-blocks-single-product-title-editor',
 		'style'           => 'mosaic-for-woocommerce-blocks-single-product-title',
 		'render_callback' => 'mosaic_for_woocommerce_blocks_single_product_title_render_callback',
-		'attributes'      => array(),
+		'attributes'      => array(
+			'align'           => array(
+				'type' => 'string',
+			),
+			'backgroundColor' => array(
+				'type' => 'string',
+			),
+			'textColor'       => array(
+				'type' => 'string',
+			),
+		),
 	) );
 
 }
@@ -100,8 +110,19 @@ function mosaic_for_woocommerce_blocks_single_product_title_render_callback( arr
 	$classes = array(
 		'mosaic-for-woocommerce-blocks-single-product-title',
 	);
-	if ( isset( $attributes['align'] ) && 'full' === $attributes['align'] ) {
-		$classes[] = 'alignfull';
+
+	if ( isset( $attributes['align'] ) ) {
+		$classes[] = esc_attr( 'has-text-align-' . $attributes['align'] );
+	}
+
+	if ( isset( $attributes['backgroundColor'] ) ) {
+		$classes[] = 'has-background';
+		$classes[] = esc_attr( 'has-' . $attributes['backgroundColor'] . '-background-color' );
+	}
+
+	if ( isset( $attributes['textColor'] ) ) {
+		$classes[] = 'has-text-color';
+		$classes[] = esc_attr( 'has-' . $attributes['textColor'] . '-color' );
 	}
 
 	ob_start();
