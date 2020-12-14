@@ -108,6 +108,7 @@ function mosaic_for_woocommerce_blocks_single_product_title_render_callback( arr
 
 	// Collect classes
 	$classes = array(
+		'wp-block',
 		'mosaic-for-woocommerce-blocks-single-product-title',
 	);
 
