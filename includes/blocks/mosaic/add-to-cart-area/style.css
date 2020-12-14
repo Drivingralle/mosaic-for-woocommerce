@@ -1,3 +1,10 @@
 /**
  * Frontend styles
  */
+
+/* @TODO: better selector to prevent !important */
+.woocommerce .product .mosaic-for-woocommerce-blocks-add-to-cart-block {
+	float: none !important;
+	width: auto !important;
+	clear: both !important;
+}
